@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MySecond</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_board">Board</string>
+    <string name="menu_write">Write</string>
+    <string name="menu_play">Play</string>
+    <string name="menu_myPage">myPage</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

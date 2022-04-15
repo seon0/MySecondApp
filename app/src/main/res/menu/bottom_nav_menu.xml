@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showin="@layout/activity_menu">
+    <item
+        android:id="@+id/navigation_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_white_24"
+        android:title="@string/menu_home" />
+    <item
+        android:id="@+id/navigation_board"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_dashboard_white_24"
+        android:title="@string/menu_board" />
+
+    <item android:id="@+id/navigation_placeholder"
+        android:enabled="false"
+        android:title="" />
+
+
+<!--    <item-->
+<!--        android:id="menu_write"-->
+<!--        android:icon="@drawable/ic_baseline_add_circle_outline_orange_24"-->
+<!--        android:title="@string/menu_write" />-->
+
+    <item
+        android:id="@+id/navigation_play"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_videogame_asset_white_24"
+        android:title="@string/menu_play" />
+    <item
+        android:id="@+id/navigation_mypage"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_person_white_24"
+        android:title="@string/menu_myPage" />
+
+
+</menu>
