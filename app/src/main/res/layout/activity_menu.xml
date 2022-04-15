@@ -8,57 +8,15 @@
     tools:context=".MenuActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_constratint"
+        android:id="@+id/layout_constraint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/layout_coordinator"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <include layout="@layout/layout_bottom_navigation_menu" />
 
-            <com.google.android.material.bottomappbar.BottomAppBar
-                android:id="@+id/bottom_app_bar"
-                style="@style/Widget.MaterialComponents.BottomAppBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                app:fabAlignmentMode="center" />
-
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/nav_bottom_menu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                app:elevation="5dp"
-                app:itemIconSize="25dp"
-                app:labelVisibilityMode="unlabeled"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:menu="@menu/bottom_nav_menu" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/menu_write"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="-10dp"
-                android:background="@color/orange_main"
-                android:contentDescription="@string/menu_write"
-                android:tint="@color/white"
-                app:backgroundTint="@color/orange_main"
-                app:fabSize="mini"
-                app:layout_anchor="@id/bottom_app_bar"
-                app:layout_anchorGravity="center|center_vertical"
-                app:srcCompat="@drawable/ic_baseline_add_24"
-                app:tint="@null" />
-<!--                app:elevation="10dp"-->
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <fragment
@@ -67,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/layout_constratint"
+        app:layout_constraintBottom_toTopOf="@id/layout_constraint"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
