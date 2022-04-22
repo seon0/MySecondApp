@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 31
 
     defaultConfig {
         applicationId "com.example.mysecond"
-        minSdk 19
-        targetSdk 32
+        minSdk 14
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -48,7 +48,9 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation files('C:\\Users\\syjo\\AndroidStudioProjects\\MyApp\\MySecond\\app\\libs\\card-stack-view-2.3.4.aar')
 
+//    implementation 'com.yuyakaido.android:card-stack-view:2.3.4'
 
     testImplementation 'junit:junit:4.13.2'
 
