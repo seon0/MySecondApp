@@ -1,9 +1,11 @@
 package com.example.mysecond
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -16,6 +18,7 @@ import com.example.mysecond.ui.BoardFragment
 import com.example.mysecond.ui.HomeFragment
 import com.example.mysecond.ui.MyPageFragment
 import com.example.mysecond.ui.PlayFragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MenuActivity : AppCompatActivity() {
 
@@ -42,6 +45,14 @@ class MenuActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         supportActionBar?.hide()
+
+        binding.layoutConstraint.findViewById<FloatingActionButton>(R.id.menu_write).setOnClickListener {
+            Log.d("MenuActivity", "Click write button!!!")
+//            Toast.makeText(applicationContext, "click button", Toast.LENGTH_SHORT)
+
+            val writeIntent = Intent(this,  BoardWriteActivity::class.java)
+            startActivity(writeIntent)
+        }
     }
 
 //    override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MySecond">
         <activity
+            android:name=".BoardWriteActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
@@ -23,12 +26,11 @@
             android:name=".MenuActivity"
             android:exported="false"
             android:label="MenuActivity"
-            android:theme="@style/Theme.MySecond">
-        </activity>
+            android:theme="@style/Theme.MySecond"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="MainActivity"></activity>
+            android:label="MainActivity" />
     </application>
 
 </manifest>
