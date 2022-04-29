@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -8,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.mysecond"
-        minSdk 16
+        minSdk 19
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -48,6 +49,12 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+
+    implementation 'androidx.room:room-ktx:2.4.2'
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:2.4.2")
+//    implementation 'androidx.room:room-runtime:2.4.2'
+
     implementation files('C:\\Users\\syjo\\AndroidStudioProjects\\MyApp\\MySecond\\app\\libs\\card-stack-view-2.3.4.aar')
 
 //    implementation 'com.yuyakaido.android:card-stack-view:2.3.4'

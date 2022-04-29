@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MySecond">
         <activity
-            android:name=".BoardWriteActivity"
+            android:name=".WritePostActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"

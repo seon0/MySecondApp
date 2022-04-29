@@ -3,21 +3,13 @@ package com.example.mysecond
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mysecond.databinding.ActivityMenuBinding
-import com.example.mysecond.ui.BoardFragment
-import com.example.mysecond.ui.HomeFragment
-import com.example.mysecond.ui.MyPageFragment
-import com.example.mysecond.ui.PlayFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MenuActivity : AppCompatActivity() {
@@ -50,7 +42,7 @@ class MenuActivity : AppCompatActivity() {
             Log.d("MenuActivity", "Click write button!!!")
 //            Toast.makeText(applicationContext, "click button", Toast.LENGTH_SHORT)
 
-            val writeIntent = Intent(this,  BoardWriteActivity::class.java)
+            val writeIntent = Intent(this,  WritePostActivity::class.java)
             startActivity(writeIntent)
         }
     }
