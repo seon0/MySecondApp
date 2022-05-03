@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mysecond.R
 import com.example.mysecond.data.BoardPost
 
-class BoardPostAdapter() :  RecyclerView.Adapter<BoardPostAdapter.BoardPostViewHolder>(){
+class BoardPostAdapter(val deleteToDB: (BoardPost) -> Unit) :  RecyclerView.Adapter<BoardPostAdapter.BoardPostViewHolder>(){
 
     var data = listOf<BoardPost>()
         set(value) {
@@ -35,6 +35,10 @@ class BoardPostAdapter() :  RecyclerView.Adapter<BoardPostAdapter.BoardPostViewH
 
     override fun onBindViewHolder(holder: BoardPostViewHolder, position: Int) {
         holder.bind(data[position], position)
+        holder.deleteButton.setOnClickListener {
+            deleteToDB(data[position])
+            notifyItemRemoved(position)
+        }
 
     }
 

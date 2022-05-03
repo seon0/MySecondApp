@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.example.mysecond.BaseApplication
 import com.example.mysecond.adapter.BoardPostAdapter
+import com.example.mysecond.data.BoardPost
 import com.example.mysecond.databinding.FragmentBoardBinding
 import com.example.mysecond.viewmodel.BoardPostViewModel
 import com.example.mysecond.viewmodel.BoardPostViewModelFactory
@@ -43,7 +44,7 @@ class BoardFragment : Fragment() {
         viewPager.clipToPadding = false
 //        viewPager.setPadding(100, 0, 100, 0)
 
-        val adapter = BoardPostAdapter()
+        val adapter = BoardPostAdapter(::deleteBoardPost)
         viewModel.allItems.observe(this.viewLifecycleOwner) { items ->
             items.let {
                 adapter.data = items
@@ -52,6 +53,10 @@ class BoardFragment : Fragment() {
         viewPager.adapter = adapter
         viewPager.setPageTransformer(BoardPostingCubeTransformer())
 
+    }
+
+    fun deleteBoardPost(boardPost: BoardPost){
+        viewModel.deleteBoardPost(boardPost)
     }
 
     override fun onDestroyView() {
