@@ -61,7 +61,7 @@ class HomeFragment : Fragment() , CardStackListener{
         profileStackViewAdapter.data = profileCardViewModel.list.value!!
 
         val cardStackView = binding.cardStackView
-        cardStackView.layoutManager = cardStackViewManager
+        cardStackView.layoutManager?: cardStackViewManager
         cardStackView.itemAnimator = DefaultItemAnimator()
 
 
