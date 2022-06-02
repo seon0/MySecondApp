@@ -3,6 +3,7 @@ package com.example.mysecond
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.PopupMenu
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -16,6 +17,7 @@ class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
     private lateinit var appBarConfiguration : AppBarConfiguration
+//    private lateinit var contextButton: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,14 +40,71 @@ class MenuActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        binding.layoutConstraint.findViewById<FloatingActionButton>(R.id.menu_write).setOnClickListener {
-            Log.d("MenuActivity", "Click write button!!!")
-//            Toast.makeText(applicationContext, "click button", Toast.LENGTH_SHORT)
+//        contextButton =binding.layoutConstraint.findViewById<FloatingActionButton>(R.id.menu_write)
+//        // + 글쓰기 버튼  컨텍스트 메뉴 등록
+//        registerForContextMenu(contextButton)
 
-            val writeIntent = Intent(this,  WritePostActivity::class.java)
-            startActivity(writeIntent)
+            binding.layoutConstraint.findViewById<FloatingActionButton>(R.id.menu_write).setOnClickListener { view ->
+            Log.d("MenuActivity", "Click write button!!!")
+
+//            // TODO 사진 / 글  선택 옵션 띄우기
+            val popup = PopupMenu(this , view)
+            menuInflater.inflate(R.menu.write_popup_menu, popup.menu)
+            popup.setOnMenuItemClickListener { menuItem ->
+                when ( menuItem.itemId ) {
+                    R.id.write_context_menu_post -> {
+                        Log.d("MenuActivity","make post click")
+
+                        // 글 입력창 띄우기
+                        val writeIntent = Intent(this,  WritePostActivity::class.java)
+                        startActivity(writeIntent)
+                    }
+                    R.id.write_context_menu_photo -> {
+                        Log.d("MenuActivity","make photo click")
+
+                        // 글 입력창 띄우기
+                        val writeIntent = Intent(this,  WritePostActivity::class.java)
+                        startActivity(writeIntent)
+                    }
+                }
+
+                return@setOnMenuItemClickListener(true)
+            }
+            popup.show()
+
         }
+
+
     }
+
+//    override fun onCreateContextMenu(
+//        menu: ContextMenu?,
+//        v: View?,
+//        menuInfo: ContextMenu.ContextMenuInfo?
+//    ) {
+//        super.onCreateContextMenu(menu, v, menuInfo)
+//
+//        if  (v === contextButton ) {
+////            menu!!.setHeaderTitle("선택지")
+//            menuInflater.inflate(R.menu.write_context_menu, menu)
+//        }
+//
+//
+//    }
+//
+//    override fun onContextItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.write_context_menu_photo -> {
+//                Log.d("MenuActivity", "context menu selected : PHOTO")
+//                return true
+//            }
+//            R.id.write_context_menu_post -> {
+//                Log.d("MenuActivity", "context menu selected : POST")
+//                return true
+//            }
+//        }
+//        return false
+//    }
 
 //    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 //        menuInflater.inflate(R.menu.bottom_nav_menu, menu)
