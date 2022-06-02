@@ -1,14 +1,18 @@
 package com.example.mysecond.ui
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
+import com.example.mysecond.R
 import com.example.mysecond.adapter.ProfileStackViewAdapter
 import com.example.mysecond.viewmodel.ProfileCardViewModel
 import com.example.mysecond.databinding.FragmentHomeBinding
@@ -28,6 +32,10 @@ class HomeFragment : Fragment() , CardStackListener{
     private lateinit var profileCardViewModel: ProfileCardViewModel
 
     private lateinit var profileStackViewAdapter: ProfileStackViewAdapter
+
+    private lateinit var swipeButtonNone: Button
+    private lateinit var swipeButtonLike: Button
+    private lateinit var swipeButtonPass: Button
 
     private val cardStackViewManager by lazy {
         CardStackLayoutManager(context, this)
@@ -63,6 +71,20 @@ class HomeFragment : Fragment() , CardStackListener{
             Log.d("HomeFragment", "rewind after")
         }
 
+
+        swipeButtonNone = binding.btnSwipeNone
+        swipeButtonLike = binding.btnSwipeLike
+        swipeButtonPass = binding.btnSwipePass
+
+        swipeButtonNone.setOnClickListener {
+            cardStackView.swipe()
+        }
+        swipeButtonLike.setOnClickListener {
+            cardStackView.swipe()
+        }
+        swipeButtonPass.setOnClickListener {
+            cardStackView.swipe()
+        }
     }
 
     override fun onDestroyView() {
@@ -74,10 +96,32 @@ class HomeFragment : Fragment() , CardStackListener{
 
     override fun onCardDragging(direction: Direction?, ratio: Float) {
         Toast.makeText(context, "[CardStackView] onCardDragging", Toast.LENGTH_SHORT)
+
+        Log.d("CardFragment", "ordinal:" + direction!!.ordinal)
+        Log.d("CardFragment", "ratio:" + ratio )
+        when ( direction?.ordinal ) {
+            0 -> {
+                swipeButtonNone.setTextColor(Color.YELLOW)
+                swipeButtonLike.setTextColor(Color.WHITE)
+                swipeButtonPass.setTextColor(Color.WHITE)
+            }
+            1 -> {
+                swipeButtonNone.setTextColor(Color.WHITE)
+                swipeButtonLike.setTextColor(Color.WHITE)
+                swipeButtonPass.setTextColor(Color.YELLOW)
+            }
+            2 -> {
+                swipeButtonNone.setTextColor(Color.WHITE)
+                swipeButtonLike.setTextColor(Color.YELLOW)
+                swipeButtonPass.setTextColor(Color.WHITE)
+            }
+        }
+
     }
 
     override fun onCardSwiped(direction: Direction?) {
         Toast.makeText(context, "[CardStackView] onCardSwiped", Toast.LENGTH_SHORT)
+        resetSwipeButton()
     }
 
     override fun onCardRewound() {
@@ -86,6 +130,8 @@ class HomeFragment : Fragment() , CardStackListener{
 
     override fun onCardCanceled() {
         Toast.makeText(context, "[CardStackView] onCardCanceled", Toast.LENGTH_SHORT)
+        Log.d("CardFragment", "Card Cancel !!!!!!!!!!!!!!!!")
+        resetSwipeButton()
     }
 
     override fun onCardAppeared(view: View?, position: Int) {
@@ -94,7 +140,14 @@ class HomeFragment : Fragment() , CardStackListener{
 
     override fun onCardDisappeared(view: View?, position: Int) {
         Toast.makeText(context, "[CardStackView] onCardDisappeared", Toast.LENGTH_SHORT)
+        resetSwipeButton()
     }
 
+    fun resetSwipeButton() {
+        swipeButtonNone.setTextColor(Color.WHITE)
+        swipeButtonLike.setTextColor(Color.WHITE)
+        swipeButtonPass.setTextColor(Color.WHITE)
+
+    }
 
 }

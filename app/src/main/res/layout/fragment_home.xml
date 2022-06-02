@@ -10,14 +10,11 @@
         android:id="@+id/card_stack_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/home_swipe_button_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_app_top"
-        android:padding="4dp"
-        android:layout_marginBottom="?attr/actionBarSize"
-        >
+        app:layout_constraintTop_toBottomOf="@id/layout_app_top">
 
     </com.yuyakaido.android.cardstackview.CardStackView>
 
@@ -46,6 +43,38 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:src="@drawable/ic_baseline_notifications_white_24" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/home_swipe_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btn_swipe_none"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NONE"
+            android:layout_marginRight="16dp"
+            />
+<!--            android:textColor="@android:color/darker_gray"-->
+        <Button
+            android:id="@+id/btn_swipe_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LIKE"
+            android:layout_marginRight="16dp"
+            />
+        <Button
+            android:id="@+id/btn_swipe_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pass"
+            android:layout_marginRight="16dp"
+            />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
