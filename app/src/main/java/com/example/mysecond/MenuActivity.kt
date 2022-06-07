@@ -55,8 +55,8 @@ class MenuActivity : AppCompatActivity() {
                     R.id.write_context_menu_post -> {
                         Log.d("MenuActivity","make post click")
 
-                        // 글 입력창 띄우기
-                        val writeIntent = Intent(this,  WritePostActivity::class.java)
+                        // 다이어리 입력창 띄우기
+                        val writeIntent = Intent(this,  WritePostsActivity::class.java)
                         startActivity(writeIntent)
                     }
                     R.id.write_context_menu_photo -> {

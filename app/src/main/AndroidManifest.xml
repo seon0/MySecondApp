@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mysecond">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name = ".BaseApplication"
         android:allowBackup="true"
@@ -13,6 +16,10 @@
         <activity
             android:name=".WritePostActivity"
             android:exported="false" />
+        <activity
+            android:name=".WritePostsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".SplashActivity"
             android:exported="true"
